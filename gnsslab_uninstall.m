@@ -7,7 +7,7 @@ function gnsslab_uninstall()
 % INPUT:
 %   none
 %
-% OUTPUT: none
+% OUTPUT:
 %   none
 %
 % See also GNSSLAB_INSTALL, GENPATH, SAVEPATH, VER.

@@ -15,6 +15,6 @@ function gnsslab = gnsslab_version()
 
 gnsslab.Name = 'GNSSLAB';
 gnsslab.Version = '1.6';
-gnsslab.Date = '2016-06-26';
+gnsslab.Date = '2016-11-01';
 
 end

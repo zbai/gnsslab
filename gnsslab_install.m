@@ -8,7 +8,7 @@ function gnsslab_install()
 % INPUT:
 %   none
 %
-% OUTPUT: none
+% OUTPUT:
 %   none
 %
 % See also GNSSLAB_UNINSTALL, GENPATH, SAVEPATH, VER.
