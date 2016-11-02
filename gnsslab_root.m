@@ -7,7 +7,7 @@ function folder = gnsslab_root()
 % INPUT:
 %   none
 %
-% OUTPUT: none
+% OUTPUT:
 %   folder - the full path to the folder containing the gnsslab toolbox.
 %
 % See also GNSSLAB_VERSION.
