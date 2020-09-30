@@ -32,14 +32,14 @@ function [sp3_hdr, sp3] = read_sp3( sp3_file )
 %   sp3:
 %       sp3(:,1)    = sat number
 %       sp3(:,2:7)  = toc (Time of Clock) [year,month,day,hour,minute,second]
-%       sp3(:,8)    = x-coordinate(km)
-%       sp3(:,9)    = y-coordinate(km)
-%       sp3(:,10)   = z-coordinate(km)
-%       sp3(:,11)   = clock (microsec)
-%       sp3(:,12)   = x standard deviation (b**n mm)
-%       sp3(:,13)   = y standard deviation (b**n mm)
-%       sp3(:,14)   = z standard deviation (b**n mm)
-%       sp3(:,15)   = clock standard deviation (b**n psec)
+%       sp3(:,8)    = x-coordinate(m)
+%       sp3(:,9)    = y-coordinate(m)
+%       sp3(:,10)   = z-coordinate(m)
+%       sp3(:,11)   = clock (sec)
+%       sp3(:,12)   = x standard deviation (b**n m)
+%       sp3(:,13)   = y standard deviation (b**n m)
+%       sp3(:,14)   = z standard deviation (b**n m)
+%       sp3(:,15)   = clock standard deviation (b**n sec)
 % 
 
 % validate the number of input arguments
@@ -112,6 +112,13 @@ while(~isempty(buf))
     sp3(m,:) = [sat, time_t, data];
     buf(1) = []; % remove first line
 end
+
+% reset unit
+sp3(:,8:10) = sp3(:,8:10) * 1000; % x y z , km -> m
+sp3(:,12:14) = sp3(:,12:14) * 1e-3; % x y z sdev, mm -> m
+
+sp3(:,11) = sp3(:,11) * 1e-6; % clock bias, microsec -> sec
+sp3(:,15) = sp3(:,15) * 1e-12; % clock bias sdev, psec -> sec
 
 % save to *.mat file
 save(mat_file, 'sp3_hdr', 'sp3');
