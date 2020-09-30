@@ -1,0 +1,8 @@
+# sp3 files
+*.sp3
+
+# navigation/observation/...(GNSS) files
+*.[0-9][0-9][nopdNPOD]
+
+# mat files
+*.mat
